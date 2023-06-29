@@ -1,0 +1,38 @@
+import java.util.Scanner;
+
+public class Ejercicio3 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Ingrese el nombre del mes (en minúsculas): ");
+        String nombreMes = scanner.nextLine();
+
+        int dias = 0;
+
+        switch (nombreMes) {
+            case "enero":
+            case "marzo":
+            case "mayo":
+            case "julio":
+            case "agosto":
+            case "octubre":
+            case "diciembre":
+                dias = 31;
+                break;
+            case "febrero":
+                dias = 28;
+                break;
+            case "abril":
+            case "junio":
+            case "septiembre":
+            case "noviembre":
+                dias = 30;
+                break;
+            default:
+                System.out.println("Nombre de mes inválido.");
+                return;
+        }
+
+        System.out.println("El mes de " + nombreMes + " tiene " + dias + " días.");
+    }
+}
