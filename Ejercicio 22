@@ -1,0 +1,81 @@
+import java.util.Scanner;
+public class Ejercicio22 {
+    public static void main(String[] args) {
+        int contador = 1;
+
+        while (contador <= 10) {
+            System.out.println("Empleado " + contador + ":");
+
+            // Generar categoría al azar
+            String categoria = generarCategoriaAlAzar();
+            System.out.println("Categoría: " + categoria);
+
+            // Generar antigüedad al azar entre 1 y 15 años
+            int antiguedad = generarAntiguedadAlAzar();
+            System.out.println("Antigüedad: " + antiguedad + " años");
+
+            // Generar sueldo bruto al azar entre 1000 y 5000
+            double sueldoBruto = generarSueldoBrutoAlAzar();
+            System.out.println("Sueldo bruto: $" + sueldoBruto);
+
+            double sueldoNeto = calcularSueldoNeto(categoria, antiguedad, sueldoBruto);
+            System.out.println("Sueldo neto: $" + sueldoNeto);
+            System.out.println();
+
+            contador++;
+        }
+    }
+
+    private static String generarCategoriaAlAzar() {
+        int numeroCategoria = (int) (Math.random() * 3) + 1;
+        switch (numeroCategoria) {
+            case 1:
+                return "A";
+            case 2:
+                return "B";
+            case 3:
+                return "C";
+            default:
+                return "";
+        }
+    }
+
+    private static int generarAntiguedadAlAzar() {
+        return (int) (Math.random() * 15) + 1;
+    }
+
+    private static double generarSueldoBrutoAlAzar() {
+        return Math.random() * 4000 + 1000;
+    }
+
+    private static double calcularSueldoNeto(String categoria, int antiguedad, double sueldoBruto) {
+        double sueldoNeto = sueldoBruto;
+
+        // Calcular aumento por antigüedad
+        if (antiguedad >= 1 && antiguedad <= 5) {
+            sueldoNeto += sueldoBruto * 0.05;
+        } else if (antiguedad >= 6 && antiguedad <= 10) {
+            sueldoNeto += sueldoBruto * 0.10;
+        } else if (antiguedad > 10) {
+            sueldoNeto += sueldoBruto * 0.30;
+        }
+
+        // Calcular plus por categoría
+        switch (categoria.toUpperCase()) {
+            case "A":
+                sueldoNeto += 1000;
+                break;
+            case "B":
+                sueldoNeto += 2000;
+                break;
+            case "C":
+                sueldoNeto += 3000;
+                break;
+            default:
+                System.out.println("Categoría inválida");
+                break;
+        }
+
+        return sueldoNeto;
+    }
+}
