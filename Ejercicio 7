@@ -1,20 +1,28 @@
 import java.util.Scanner;
 
-public class Ejercicio6 {
+public class Ejercicio7 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Ingrese el número de curso: ");
-        int curso = scanner.nextInt();
+        System.out.println("Ingrese el primer número: ");
+        int numero1 = scanner.nextInt();
 
-        if (curso == 0) {
-            System.out.println("Jardín de infantes");
-        } else if (curso >= 1 && curso <= 6) {
-            System.out.println("Primaria");
-        } else if (curso >= 7 && curso <= 12) {
-            System.out.println("Secundaria");
-        } else {
-            System.out.println("Curso inválido.");
+        System.out.println("Ingrese el segundo número: ");
+        int numero2 = scanner.nextInt();
+
+        System.out.println("Ingrese el tercer número: ");
+        int numero3 = scanner.nextInt();
+
+        int mayor = numero1;
+
+        if (numero2 > mayor) {
+            mayor = numero2;
         }
+
+        if (numero3 > mayor) {
+            mayor = numero3;
+        }
+
+        System.out.println("El número mayor es: " + mayor);
     }
 }
