@@ -1,0 +1,21 @@
+import java.util.Scanner;
+
+public class Ejercicio8 {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Jugador 1: Ingrese su elección (0: piedra, 1: papel, 2: tijera): ");
+        int eleccion1 = scanner.nextInt();
+
+        System.out.println("Jugador 2: Ingrese su elección (0: piedra, 1: papel, 2: tijera): ");
+        int eleccion2 = scanner.nextInt();
+
+        if ((eleccion1 == 0 && eleccion2 == 2) || (eleccion1 == 1 && eleccion2 == 0) || (eleccion1 == 2 && eleccion2 == 1)) {
+            System.out.println("¡El Jugador 1 es el ganador!");
+        } else if ((eleccion1 == 2 && eleccion2 == 0) || (eleccion1 == 0 && eleccion2 == 1) || (eleccion1 == 1 && eleccion2 == 2)) {
+            System.out.println("¡El Jugador 2 es el ganador!");
+        } else {
+            System.out.println("¡Es un empate!");
+        }
+    }
+}
